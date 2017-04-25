@@ -1,0 +1,29 @@
+<div class="container pad-top">
+  <a ui-sref="newChocolate" class="btn-primary btn-lg nodecoration">Add Chocolate</a>
+  <table class="table shipwrecktable">
+      <thead>
+      <tr>
+          <td><h3>All Chocolates</h3></td>
+          <td></td>
+      </tr>
+      </thead>
+      <thead>
+      	<tr>
+      	   <th>Name</th>
+      	   <th>Rating  %</th>
+      	   <th>Company</th>
+      	   <th></th>
+      	   <th></th>
+      	</tr>
+      </thead>
+      <tr ng-repeat="chocolate in chocolates | orderBy:'name'">
+          <td>{{chocolate.fields.name}}</td>
+          <td>{{chocolate.fields.rating | number:2}}</td>
+          <td>{{chocolate.fields.company}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewChocolate({id:chocolate.recordid})">View</a>
+              <a class="btn btn-danger"  ng-click="deleteShipwreck(shipwreck)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>
